@@ -9,4 +9,5 @@ docker run --log-driver=loki \
     --log-opt loki-retries=5 \
     --log-opt loki-batch-size=400 \
     --rm \
-	-p 80:80 nginx
+    -p 80:80 \
+    --name nginx nginx
