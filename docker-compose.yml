@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+
+  grafana:
+    image: grafana
+    ports:
+      - 3000:3000
+
+  grafana-loki:
+    image: grafana-loki
+    ports:
+      - 3100:3100
+        
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    logging:
+      driver: loki
+      options:
+        loki-url: "https://<user_id>:<password>@logs-us-west1.grafana.net/loki/api/v1/push"
+        
